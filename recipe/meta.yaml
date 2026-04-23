@@ -7,11 +7,11 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://gforge.inria.fr/frs/download.php/file/37331/mpfi-{{ version }}.tar.bz2
-  sha256: 2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f
+  url: https://perso.ens-lyon.fr/nathalie.revol/softwares/mpfi-{{ version }}.tar.bz2
+  sha256: d20ba56a8d57d0816f028be8b18a4aa909a068efcb9a260e69577939e4199752
 
 build:
-  number: 1001
+  number: 1002
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('mpfi', max_pin='x.x') }}
@@ -20,7 +20,6 @@ requirements:
   build:
     - libtool  # [unix]
     - {{ compiler('c') }}
-    - libtool
     - make
 
   host:
@@ -38,11 +37,11 @@ test:
     - test -f ${PREFIX}/lib/lib{{ name }}${SHLIB_EXT}  # [unix]
 
 about:
-  home: http://mpfi.gforge.inria.fr/
+  home: https://perso.ens-lyon.fr/nathalie.revol/software.html
   license: LGPL 3
   license_file: COPYING
   summary: A multiple precision interval arithmetic library based on MPFR
-  dev_url: https://gforge.inria.fr/scm/?group_id=157
+  dev_url: https://gitlab.inria.fr/mpfi/mpfi
 
 extra:
   recipe-maintainers:
